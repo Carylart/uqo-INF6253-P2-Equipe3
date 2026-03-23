@@ -1,0 +1,56 @@
+INF6253 - Analyse quantitative comparative
+Domaine : GO:0012501 - programmed cell death (apoptose)
+Genere le : 2026-03-23 18:53:29
+=================================================================
+
+  STRUCTURE GLOBALE DE L'ONTOLOGIE (recap tache 1)
+  Metrique                                   Oct 2025    Jan 2026
+  ----------------------------------------------------------------
+  Classes totales                              59,419      59,468
+  Classes actives                              46,931      46,310
+  Classes deprecices                           12,488      13,158
+  Proprietes objet                                 84          85
+  Proprietes d annotation                          31          36
+  Triplets totaux                           1,873,669   1,860,062
+
+  AXIOMES OWL (recap tache 1)
+  Type d axiome                              Oct 2025    Jan 2026
+  ----------------------------------------------------------------
+  rdfs:subClassOf                             136,333     133,919
+  owl:equivalentClass                          21,299      20,752
+  owl:disjointWith                                181         207
+  Restrictions OWL                             99,448      97,739
+  Axiomes annotes (owl:Axiom)                 135,366     131,452
+
+  TACHE 2 : DOMAINE APOPTOSE (GO:0012501 et descendants)
+  Metrique                                   Oct 2025    Jan 2026
+  ----------------------------------------------------------------
+  Nb de classes dans le domaine                   463         435
+  Nb de classes actives                           463         435
+  Nb de classes deprecices                          0           0
+
+  CHANGEMENTS ENTRE LES DEUX VERSIONS
+  Metrique                                     Nombre
+  ----------------------------------------------------
+  Nb de classes nouvelles (v2 - v1)                 0
+  Nb de classes supprimees (v1 - v2)               28
+  Nouvelles deprecations (actif -> depr.)           0
+  Hierarchie modifiee (parents != )                 7
+
+  CLASSES A HIERARCHIE MODIFIEE (max 5)
+  ----------------------------------------------------
+  ~ GO:0070961       positive regulation of neutrophil mediated killing of symbiont cell
+    Parents v1 : GO:0002833, GO:0031349, GO:0032103, GO:0051712, GO:0070949, GO:0070960
+    Parents v2 : GO:0051712, GO:0070949, GO:0070960
+  ~ GO:1900212       negative regulation of mesenchymal cell apoptotic process involved in metanephros development
+    Parents v1 : GO:1900211, GO:1904746, GO:2001054
+    Parents v2 : GO:1904746, GO:2001054
+  ~ GO:1902443       negative regulation of ripoptosome assembly involved in necroptotic process
+    Parents v1 : GO:0031333, GO:1902442
+    Parents v2 : GO:0031333
+  ~ GO:1902339       positive regulation of apoptotic process involved in morphogenesis
+    Parents v1 : GO:1902337, GO:1904747
+    Parents v2 : GO:1904747
+  ~ GO:0072040       negative regulation of mesenchymal cell apoptotic process involved in nephron morphogenesis
+    Parents v1 : GO:0072039, GO:1902338, GO:1904673, GO:2001054
+    Parents v2 : GO:1902338, GO:1904673, GO:2001054

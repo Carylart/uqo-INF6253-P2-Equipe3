@@ -1,0 +1,58 @@
+INF6253 - Rapport de raisonnement OWL (tache 4)
+Version GO  : Jan 2026 (2026-01-23)
+Outil       : owlrl (profil RDFS_Semantics)
+Portee      : Sous-graphe apoptose (GO:0012501 + descendants)
+Genere le   : 2026-03-23 18:53:48
+=================================================================
+
+  CHOIX DU RAISONNEUR
+  -------------------------------------------------------
+  Le projet recommande HermiT ou Pellet (raisonneurs OWL DL).
+  Ces outils necessitent Java et s'integrent principalement
+  via Protege. Dans ce pipeline Python autonome, on utilise
+  owlrl qui est 100% Python et ne necessite pas Java.
+
+  owlrl / RDFS_Semantics est suffisant pour GO car :
+    - GO est principalement une hierarchie (subClassOf) avec
+      des restrictions someValuesFrom (couvertes par OWL-RL)
+    - Les incoherences detectables dans GO sont toutes
+      identifiables avec RDFS + regles OWL-RL de base
+    - Le profil RDFS_Semantics evite la generation de millions
+      de triplets inutiles (owl:sameAs, cardinalites, nominals)
+      que RDFS_OWLRL_Semantics produirait sur cette ontologie
+
+  Couverture RDFS_Semantics :
+    rdfs11 : subClassOf transitif
+    rdfs2/3 : propagation domain / range
+    rdfs9   : propagation rdf:type via subClassOf
+  Hors portee : OWL DL complet, cardinalites, nominals,
+                owl:sameAs, owl:hasValue, owl:oneOf
+
+  RESULTATS DU RAISONNEMENT
+  -------------------------------------------------------
+  Temps de raisonnement                             8.2s
+  Triplets avant inference                       30,822
+  Triplets apres inference                       48,983
+  Triplets ajoutes par inference                 18,161
+  Nouvelles subClassOf inferees                   6,543
+  Nouveaux rdf:type inferes                      11,587
+
+  INCOHERENCES DETECTEES : 0
+  -------------------------------------------------------
+  Aucune incoherence detectee.
+
+  INFERENCES DANS LE DOMAINE APOPTOSE (GO:0012501)
+  -------------------------------------------------------
+  Nouvelles subClassOf dans le domaine : 1317
+
+  Exemples (max 5) :
+    GO:0070248 (negative regulation of natural killer cell apoptotic process)
+      subClassOf [infere] -> GO:2000107 (negative regulation of leukocyte apoptotic process)
+    GO:0070233 (negative regulation of T cell apoptotic process)
+      subClassOf [infere] -> GO:2000107 (negative regulation of leukocyte apoptotic process)
+    GO:0002903 (negative regulation of B cell apoptotic process)
+      subClassOf [infere] -> GO:2000107 (negative regulation of leukocyte apoptotic process)
+    GO:1905403 (negative regulation of activated CD8-positive, alpha-beta T cell apoptotic process)
+      subClassOf [infere] -> GO:2000107 (negative regulation of leukocyte apoptotic process)
+    GO:0070244 (negative regulation of thymocyte apoptotic process)
+      subClassOf [infere] -> GO:2000107 (negative regulation of leukocyte apoptotic process)

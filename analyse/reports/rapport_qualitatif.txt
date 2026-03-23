@@ -1,0 +1,78 @@
+INF6253 - Analyse qualitative comparative (tache 3)
+Domaine : GO:0012501 - programmed cell death (apoptose)
+Genere le : 2026-03-23 18:53:29
+=================================================================
+
+  Propriete de definition consultee : IAO:0000115 (OBO)
+  Fallback si absente               : rdfs:comment
+  Relations comparees               : part_of, regulates,
+                                      positively_regulates,
+                                      negatively_regulates
+
+─────────────────────────────────────────────────────────────────
+  Terme : GO:0006915
+─────────────────────────────────────────────────────────────────
+  Label     : apoptotic process
+  Statut    : Oct 2025 = actif  |  Jan 2026 = actif
+  Definition: INCHANGEE (source : IAO:0000115)
+    "A programmed cell death process which begins when a cell receives an internal (e.g. DNA damage) or external signal (e.g...."
+  Hierarchie: INCHANGEE (rdfs:subClassOf)
+    is_a -> GO:0012501 (programmed cell death)
+  Relations : INCHANGEES
+    RO_0002162 -> NCBITaxon:33154 ((?))
+    RO_0002224 -> GO:0097190 (apoptotic signaling pathway)
+    RO_0002230 -> GO:0097194 (execution phase of apoptosis)
+
+─────────────────────────────────────────────────────────────────
+  Terme : GO:0008625
+─────────────────────────────────────────────────────────────────
+  Label     : extrinsic apoptotic signaling pathway via death domain receptors
+  Statut    : Oct 2025 = actif  |  Jan 2026 = actif
+  Definition: INCHANGEE (source : IAO:0000115)
+    "The series of molecular signals in which a signal is conveyed from the cell surface to trigger the apoptotic death of a ..."
+  Hierarchie: INCHANGEE (rdfs:subClassOf)
+    is_a -> GO:0097191 (extrinsic apoptotic signaling pathway)
+  Relations : INCHANGEES
+    RO_0002162 -> NCBITaxon:33154 ((?))
+
+─────────────────────────────────────────────────────────────────
+  Terme : GO:0043065
+─────────────────────────────────────────────────────────────────
+  Label     : positive regulation of apoptotic process
+  Statut    : Oct 2025 = actif  |  Jan 2026 = actif
+  Definition: INCHANGEE (source : IAO:0000115)
+    "Any process that activates or increases the frequency, rate or extent of cell death by apoptotic process."
+  Hierarchie: INCHANGEE (rdfs:subClassOf)
+    is_a -> GO:0042981 (regulation of apoptotic process)
+    is_a -> GO:0043068 (positive regulation of programmed cell death)
+  Relations : INCHANGEES
+    RO_0002162 -> NCBITaxon:33154 ((?))
+    positively_regulates -> GO:0006915 (apoptotic process)
+
+─────────────────────────────────────────────────────────────────
+  Terme : GO:0043066
+─────────────────────────────────────────────────────────────────
+  Label     : negative regulation of apoptotic process
+  Statut    : Oct 2025 = actif  |  Jan 2026 = actif
+  Definition: INCHANGEE (source : IAO:0000115)
+    "Any process that stops, prevents, or reduces the frequency, rate or extent of cell death by apoptotic process."
+  Hierarchie: INCHANGEE (rdfs:subClassOf)
+    is_a -> GO:0042981 (regulation of apoptotic process)
+    is_a -> GO:0043069 (negative regulation of programmed cell death)
+  Relations : INCHANGEES
+    RO_0002162 -> NCBITaxon:33154 ((?))
+    negatively_regulates -> GO:0006915 (apoptotic process)
+
+─────────────────────────────────────────────────────────────────
+  Terme : GO:0097194
+─────────────────────────────────────────────────────────────────
+  Label     : execution phase of apoptosis
+  Statut    : Oct 2025 = actif  |  Jan 2026 = actif
+  Definition: INCHANGEE (source : IAO:0000115)
+    "A stage of the apoptotic process that starts with the controlled breakdown of the cell through the action of effector ca..."
+  Hierarchie: INCHANGEE (rdfs:subClassOf)
+    is_a -> GO:0009987 (cellular process)
+  Relations : INCHANGEES
+    BFO_0000050 -> GO:0006915 (apoptotic process)
+    BFO_0000051 -> GO:0032060 (bleb assembly)
+    RO_0002162 -> NCBITaxon:33154 ((?))

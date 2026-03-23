@@ -1,0 +1,24 @@
+INF6253 - Structure generale de l'ontologie GO
+Version   : Jan 2026
+Genere le : 2026-03-23 18:53:29
+============================================================
+
+  CLASSES ET PROPRIETES
+  Metrique                                Valeur
+  -----------------------------------------------
+  Classes totales                         59,468
+  Classes actives                         46,310
+  Classes deprecices                      13,158
+  Proprietes objet                            85
+  Proprietes d annotation                     36
+
+  AXIOMES OWL
+  Type d axiome                           Nombre
+  -----------------------------------------------
+  rdfs:subClassOf                        133,919
+  owl:equivalentClass                     20,752
+  owl:disjointWith                           207
+  Restrictions (someValuesFrom)           97,739
+  Axiomes annotes (owl:Axiom)            131,452
+
+  Triplets totaux (toutes assertions)  1,860,062

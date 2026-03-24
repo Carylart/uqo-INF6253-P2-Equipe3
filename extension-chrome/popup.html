@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GO Evolution Tracker - Configuration</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <h1>🔬 GO Evolution Tracker</h1>
+      <p class="subtitle">Configuration et statistiques</p>
+    </div>
+
+    <div class="popup-content">
+      <section class="config-section">
+        <h2>Configuration</h2>
+        
+        <div class="form-group">
+          <label for="apiUrl">URL du service web</label>
+          <input type="text" id="apiUrl" placeholder="http://localhost:8000" />
+          <small>L'URL de votre API REST</small>
+        </div>
+
+        <div class="form-group">
+          <label for="domain">Domaine d'intérêt</label>
+          <select id="domain">
+            <option value="GO:0012501">Programmed cell death (GO:0012501)</option>
+            <option value="GO:0006281">DNA repair (GO:0006281)</option>
+            <option value="GO:0006629">Lipid metabolism (GO:0006629)</option>
+          </select>
+          <small>Choisissez votre domaine de recherche</small>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" id="cacheEnabled" />
+            <span>Activer le cache local</span>
+          </label>
+          <small>Améliore les performances en stockant les résultats</small>
+        </div>
+
+        <button id="saveSettings" class="btn btn-primary">Enregistrer les paramètres</button>
+        <div id="saveMessage" class="message"></div>
+      </section>
+
+      <section class="stats-section">
+        <h2>Statistiques du cache</h2>
+        <div id="cacheStats" class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value" id="totalEntries">-</div>
+            <div class="stat-label">Entrées totales</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="validEntries">-</div>
+            <div class="stat-label">Entrées valides</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="expiredEntries">-</div>
+            <div class="stat-label">Entrées expirées</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="cacheSize">-</div>
+            <div class="stat-label">Taille (KB)</div>
+          </div>
+        </div>
+        <button id="clearCache" class="btn btn-secondary">Vider le cache</button>
+      </section>
+
+      <section class="test-section">
+        <h2>Test de connexion</h2>
+        <div class="form-group">
+          <label for="testGoId">Tester un terme GO</label>
+          <input type="text" id="testGoId" placeholder="GO:0012501" />
+        </div>
+        <button id="testConnection" class="btn btn-secondary">Tester</button>
+        <div id="testResult" class="test-result"></div>
+      </section>
+
+      <section class="info-section">
+        <h2>À propos</h2>
+        <p>Extension développée pour le projet INF6253 - Web sémantique</p>
+        <p><strong>Version:</strong> 1.0.0</p>
+        <p><strong>Sites supportés:</strong></p>
+        <ul>
+          <li>QuickGO (EBI)</li>
+          <li>AmiGO 2</li>
+          <li>Ontology Lookup Service</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

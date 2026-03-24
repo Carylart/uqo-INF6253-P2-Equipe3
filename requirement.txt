@@ -1,2 +1,6 @@
 rdflib
 owlrl
+fastapi
+uvicorn
+rdflib
+pydantic

@@ -107,7 +107,7 @@ def get_term(go_id: str):
     versions = get_term_versions(go_id)
     if not versions:
         raise HTTPException(status_code=404, detail=f"Terme {go_id} introuvable")
-    return TermResponse(go_id=_normalize_go_id(go_id), versions=versions)
+    return TermResponse(go_id=normalize_go_id(go_id), versions=versions)
 
 
 @app.get("/api/term/{go_id}/diff")
@@ -134,7 +134,7 @@ def get_term_diff(go_id: str):
             changes[key] = {"from": d1[key], "to": d2[key]}
 
     return {
-        "go_id": _normalize_go_id(go_id),
+        "go_id": normalize_go_id(go_id),
         "version_from": v1.version_node,
         "version_to": v2.version_node,
         "changes": changes,
@@ -157,7 +157,7 @@ def get_domain_stats(domain_id: str):
             OPTIONAL {{ ?term evo:parent ?parent . }}
         }}
     """
-    rows = list(_execute_sparql(query))
+    rows = list(execute_sparql(query))
     if not rows:
         raise HTTPException(status_code=404, detail=f"Aucun terme trouve pour domaine {domain_id}")
 
@@ -189,7 +189,7 @@ def get_domain_stats(domain_id: str):
                 changed_hierarchy += 1
 
     return {
-        "domain_id": _normalize_go_id(domain_id),
+        "domain_id": normalize_go_id(domain_id),
         "term_count": total,
         "terms_per_version": per_version,
         "deprecated_per_version": deprecated,
@@ -216,7 +216,7 @@ def search_terms(q: str = Query(..., min_length=1)):
         LIMIT 100
     """
 
-    rows = list(_execute_sparql(query))
+    rows = list(execute_sparql(query))
     return [
         {
             "go_id": str(row.termID),

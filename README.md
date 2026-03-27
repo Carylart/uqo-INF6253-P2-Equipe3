@@ -69,25 +69,19 @@ Documentation API: `http://localhost:8000/docs`
 
 #### Pour Chrome:
 
-1. Générer les icônes (voir `extension-chrome/icons/README.md`)
-2. Ouvrir Chrome et aller à `chrome://extensions/`
-3. Activer le "Mode développeur"
-4. Cliquer sur "Charger l'extension non empaquetée"
-5. Sélectionner le dossier `extension-chrome`
-6. Configurer l'URL du service web dans la popup de l'extension
-
-Voir `extension-chrome/INSTALLATION.md` pour plus de détails.
+1. Ouvrir Chrome et aller à `chrome://extensions/`
+2. Activer le "Mode développeur"
+3. Cliquer sur "Charger l'extension non empaquetée"
+4. Sélectionner le dossier `extension-chrome`
+5. Configurer l'URL du service web dans la popup de l'extension
 
 #### Pour Firefox:
 
-1. Générer les icônes (voir `extension-firefox/icons/README.md`)
-2. Ouvrir Firefox et aller à `about:debugging`
-3. Cliquer sur "Ce Firefox"
-4. Cliquer sur "Charger un module complémentaire temporaire"
-5. Sélectionner `extension-firefox/manifest.json`
-6. Configurer l'URL du service web dans la popup de l'extension
-
-Voir `extension-firefox/README.md` pour plus de détails.
+1. Ouvrir Firefox et aller à `about:debugging`
+2. Cliquer sur "Ce Firefox"
+3. Cliquer sur "Charger un module complémentaire temporaire"
+4. Sélectionner `extension-firefox/manifest.json`
+5. Configurer l'URL du service web dans la popup de l'extension
 
 ## 📖 Utilisation
 
@@ -100,14 +94,14 @@ Voir `extension-firefox/README.md` pour plus de détails.
 
 Exemple:
 ```bash
-curl http://localhost:8000/api/term/GO:0006281/diff
+curl http://localhost:8000/api/term/GO:0012501/diff
 ```
 
 ### Extension de navigateur
 
 1. **Naviguer vers une page GO**
-   - QuickGO: https://www.ebi.ac.uk/QuickGO/term/GO:0006281
-   - AmiGO: http://amigo.geneontology.org/amigo/term/GO:0006281
+   - QuickGO: https://www.ebi.ac.uk/QuickGO/term/GO:0012501
+   - AmiGO: http://amigo.geneontology.org/amigo/term/GO:0012501
 
 2. **Observer le badge**
    - Un badge apparaît automatiquement en haut à droite
@@ -135,7 +129,7 @@ curl http://localhost:8000/api/term/GO:0006281/diff
 
 ### Configuration
 - URL du service web personnalisable
-- Choix du domaine d'intérêt (DNA repair, Apoptosis, etc.)
+- Domaine d'intérêt: Programmed cell death (GO:0012501)
 - Activation/désactivation du cache
 - Test de connexion intégré
 
@@ -145,31 +139,29 @@ curl http://localhost:8000/api/term/GO:0006281/diff
 
 ```bash
 # Test simple
-curl http://localhost:8000/api/term/GO:0006281
+curl http://localhost:8000/api/term/GO:0012501
 
 # Test avec différences
-curl http://localhost:8000/api/term/GO:0006281/diff
+curl http://localhost:8000/api/term/GO:0012501/diff
 
 # Test de recherche
-curl "http://localhost:8000/api/search?q=DNA+repair"
+curl "http://localhost:8000/api/search?q=apoptosis"
 ```
 
 ### Tester l'extension
 
 1. Ouvrir la popup de configuration
-2. Entrer un GO ID (ex: GO:0006281)
+2. Entrer un GO ID (ex: GO:0012501)
 3. Cliquer sur "Tester"
 4. Vérifier la réponse JSON
 
 Sites de test recommandés:
-- https://www.ebi.ac.uk/QuickGO/term/GO:0006281
-- http://amigo.geneontology.org/amigo/term/GO:0006281
+- https://www.ebi.ac.uk/QuickGO/term/GO:0012501
+- http://amigo.geneontology.org/amigo/term/GO:0012501
 
-## 📊 Domaines d'étude supportés
+## 📊 Domaine d'étude
 
-- **DNA repair** (GO:0006281) - Par défaut
 - **Programmed cell death** (GO:0012501)
-- **Lipid metabolism** (GO:0006629)
 
 ## 🔧 Développement
 

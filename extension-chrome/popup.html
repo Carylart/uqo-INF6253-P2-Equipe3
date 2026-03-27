@@ -27,10 +27,8 @@
           <label for="domain">Domaine d'intérêt</label>
           <select id="domain">
             <option value="GO:0012501">Programmed cell death (GO:0012501)</option>
-            <option value="GO:0006281">DNA repair (GO:0006281)</option>
-            <option value="GO:0006629">Lipid metabolism (GO:0006629)</option>
           </select>
-          <small>Choisissez votre domaine de recherche</small>
+          <small>Domaine de recherche du projet</small>
         </div>
 
         <div class="form-group checkbox-group">
@@ -72,7 +70,7 @@
         <h2>Test de connexion</h2>
         <div class="form-group">
           <label for="testGoId">Tester un terme GO</label>
-          <input type="text" id="testGoId" placeholder="GO:0012501" />
+          <input type="text" id="testGoId" value="GO:0012501" placeholder="GO:0012501" />
         </div>
         <button id="testConnection" class="btn btn-secondary">Tester</button>
         <div id="testResult" class="test-result"></div>

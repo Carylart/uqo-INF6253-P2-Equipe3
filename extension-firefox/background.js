@@ -195,9 +195,9 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 browser.runtime.onInstalled.addListener(() => {
-  browser.storage.sync.set({
+  browser.storage.local.set({
     apiUrl: 'http://localhost:8000',
-    domain: 'GO:0006281',
+    domain: 'GO:0012501',
     cacheEnabled: true
   });
   console.log('GO Evolution Tracker installed');

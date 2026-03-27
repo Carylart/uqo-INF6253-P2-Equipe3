@@ -6,18 +6,17 @@ const GO_ID_PATTERNS = [
 function extractGOId() {
   const url = window.location.href;
   
-  for (const pattern of GO_ID_PATTERNS) {
-    const match = url.match(pattern);
-    if (match) {
-      const goId = match[0].replace(/[:_]/g, ':').replace('term/', '');
-      return goId.startsWith('GO:') ? goId : `GO:${goId}`;
-    }
+  const urlMatch = url.match(/GO[:_]?(\d{7})/);
+  if (urlMatch) {
+    return `GO:${urlMatch[1]}`;
   }
   
-  const bodyText = document.body.innerText;
-  const bodyMatch = bodyText.match(/GO[:_]\d{7}/i);
-  if (bodyMatch) {
-    return bodyMatch[0].replace('_', ':');
+  if (document.body) {
+    const bodyText = document.body.innerText;
+    const bodyMatch = bodyText.match(/GO[:_]?(\d{7})/);
+    if (bodyMatch) {
+      return `GO:${bodyMatch[1]}`;
+    }
   }
   
   return null;
@@ -165,6 +164,10 @@ function determineStatus(diffData) {
 }
 
 async function injectEvolutionInfo() {
+  if (document.getElementById('go-evolution-badge')) {
+    return;
+  }
+  
   const goId = extractGOId();
   
   if (!goId) {
@@ -203,7 +206,18 @@ async function injectEvolutionInfo() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', injectEvolutionInfo);
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(injectEvolutionInfo, 500);
+  });
 } else {
-  injectEvolutionInfo();
+  setTimeout(injectEvolutionInfo, 500);
 }
+
+setInterval(() => {
+  if (!document.getElementById('go-evolution-badge')) {
+    const goId = extractGOId();
+    if (goId) {
+      injectEvolutionInfo();
+    }
+  }
+}, 2000);

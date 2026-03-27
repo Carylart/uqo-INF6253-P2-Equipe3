@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function loadSettings() {
-  const settings = await browser.storage.sync.get({
+  const settings = await browser.storage.local.get({
     apiUrl: 'http://localhost:8000',
-    domain: 'GO:0006281',
+    domain: 'GO:0012501',
     cacheEnabled: true
   });
   
@@ -29,7 +29,7 @@ async function saveSettings() {
     return;
   }
   
-  await browser.storage.sync.set({
+  await browser.storage.local.set({
     apiUrl: apiUrl,
     domain: domain,
     cacheEnabled: cacheEnabled
@@ -93,7 +93,7 @@ async function testConnection() {
   resultEl.textContent = 'Test en cours...';
   
   try {
-    const settings = await browser.storage.sync.get({
+    const settings = await browser.storage.local.get({
       apiUrl: 'http://localhost:8000',
       cacheEnabled: false
     });

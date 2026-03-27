@@ -8,8 +8,11 @@
     "activeTab",
     "https://www.ebi.ac.uk/*",
     "http://amigo.geneontology.org/*",
+    "https://amigo.geneontology.org/*",
     "https://www.ebi.ac.uk/ols/*",
-    "http://localhost:8000/*"
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "<all_urls>"
   ],
   "background": {
     "scripts": ["background.js"]
@@ -19,6 +22,8 @@
       "matches": [
         "https://www.ebi.ac.uk/QuickGO/term/*",
         "http://amigo.geneontology.org/amigo/term/*",
+        "https://amigo.geneontology.org/amigo/term/*",
+        "*://amigo.geneontology.org/amigo/term/*",
         "https://www.ebi.ac.uk/ols/ontologies/go/terms*"
       ],
       "js": ["content.js"],

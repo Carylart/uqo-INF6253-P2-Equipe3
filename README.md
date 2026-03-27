@@ -2,7 +2,7 @@
 
 Projet P2 : Évolution d'ontologies biomédicales - Extension de navigateur pour la veille sémantique sur Gene Ontology
 
-## 📋 Description du projet
+## Description du projet
 
 Ce projet vise à développer une solution complète pour suivre l'évolution de Gene Ontology (GO) entre différentes versions. Il comprend trois parties principales:
 
@@ -10,7 +10,7 @@ Ce projet vise à développer une solution complète pour suivre l'évolution de
 2. **Service web** d'analyse avec base de connaissances RDF
 3. **Extension de navigateur** pour visualiser les changements en temps réel
 
-## 🏗️ Structure du projet
+## Structure du projet
 
 ```
 uqo-INF6253-P2-Equipe3/
@@ -31,7 +31,7 @@ uqo-INF6253-P2-Equipe3/
 └── README.md
 ```
 
-## 🚀 Installation et exécution
+## Installation et exécution
 
 ### Prérequis
 
@@ -54,18 +54,56 @@ python analyse/evo_builder.py
 
 Cette commande analyse les fichiers OWL de Gene Ontology et génère la base de connaissances RDF représentant l'évolution entre les versions.
 
-### Étape 3: Démarrer le service web
+### Étape 3: Démarrer le triplestore avec Docker (optionnel)
+
+Le projet inclut un Dockerfile pour Apache Jena Fuseki qui charge automatiquement les données RDF.
+
+#### Option 1: Avec Docker Compose (recommandé)
+
+```bash
+cd triplestore
+docker-compose up -d
+```
+
+#### Option 2: Avec Docker directement
+
+```bash
+# Construire l'image Docker
+docker build -t go-triplestore triplestore/
+
+# Démarrer le conteneur
+docker run -p 3030:3030 go-triplestore
+```
+
+Le triplestore sera accessible sur `http://localhost:3030` avec l'interface web Fuseki.
+
+#### Charger les données manuellement (si nécessaire)
+
+Si vous voulez charger les données après le démarrage du conteneur:
+
+Linux :
+```bash
+cd triplestore
+./load_data.sh
+```
+OU Windows :
+```bash
+cd triplestore
+./load_data.bat
+```
+
+### Étape 4: Démarrer le service web
 
 ```bash
 cd service_web
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Le service web sera accessible à `http://localhost:8000`
 
 Documentation API: `http://localhost:8000/docs`
 
-### Étape 4: Installer l'extension de navigateur
+### Étape 5: Installer l'extension de navigateur
 
 #### Pour Chrome:
 
@@ -83,16 +121,15 @@ Documentation API: `http://localhost:8000/docs`
 4. Sélectionner `extension-firefox/manifest.json`
 5. Configurer l'URL du service web dans la popup de l'extension
 
-## 📖 Utilisation
-
-### Service Web - Points d'accès API
+## Points d'accès API
 
 - `GET /api/term/{go_id}` - Informations sur un terme GO dans les deux versions
 - `GET /api/term/{go_id}/diff` - Différences entre les versions pour un terme
 - `GET /api/domain/{domain_id}/stats` - Statistiques d'évolution pour un domaine
 - `GET /api/search?q={query}` - Recherche de termes par label ou définition
 
-Exemple:
+### Tester le service web
+
 ```bash
 curl http://localhost:8000/api/term/GO:0012501/diff
 ```
@@ -111,7 +148,7 @@ curl http://localhost:8000/api/term/GO:0012501/diff
    - Cliquer sur "Voir les détails" pour une comparaison complète
    - Visualiser les changements de définition, hiérarchie, et relations
 
-## ✨ Fonctionnalités de l'extension
+## Fonctionnalités de l'extension
 
 ### Détection automatique
 - Détecte les identifiants GO sur QuickGO, AmiGO et OLS
@@ -163,7 +200,7 @@ Sites de test recommandés:
 
 - **Programmed cell death** (GO:0012501)
 
-## 🔧 Développement
+## Développement
 
 ### Structure du service web
 
@@ -188,7 +225,7 @@ extension-chrome/
 └── styles.css          # Styles injectés
 ```
 
-## 🐛 Dépannage
+## Dépannage
 
 ### Le service web ne démarre pas
 - Vérifier que le port 8000 est libre
@@ -205,23 +242,21 @@ extension-chrome/
 - Vérifier les permissions CORS
 - Vérifier la configuration de l'extension
 
-## 📚 Documentation
+## Documentation
 
 - `extension-chrome/README.md` - Documentation complète de l'extension Chrome
 - `extension-chrome/INSTALLATION.md` - Guide d'installation détaillé
 - `extension-firefox/README.md` - Documentation de l'extension Firefox
-- `Sujet.md` - Énoncé complet du projet
-- `Instructions.md` - Instructions spécifiques
 
-## 👥 Équipe
+## Équipe
 
 Projet développé dans le cadre du cours INF6253 - Web sémantique (UQO, Hiver 2026)
 
-## 📄 Licence
+## Licence
 
 Projet éducatif - INF6253 UQO
 
-## 🆘 Support
+## Support
 
 Pour toute question:
 1. Consulter la documentation dans chaque dossier

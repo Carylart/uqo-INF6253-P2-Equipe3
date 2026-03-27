@@ -121,18 +121,14 @@ Documentation API: `http://localhost:8000/docs`
 4. Sélectionner `extension-firefox/manifest.json`
 5. Configurer l'URL du service web dans la popup de l'extension
 
-## Points d'accès API
+## 📖 Utilisation
+
+### Service Web - Points d'accès API
 
 - `GET /api/term/{go_id}` - Informations sur un terme GO dans les deux versions
 - `GET /api/term/{go_id}/diff` - Différences entre les versions pour un terme
 - `GET /api/domain/{domain_id}/stats` - Statistiques d'évolution pour un domaine
 - `GET /api/search?q={query}` - Recherche de termes par label ou définition
-
-### Tester le service web
-
-```bash
-curl http://localhost:8000/api/term/GO:0012501/diff
-```
 
 ### Extension de navigateur
 
@@ -148,7 +144,7 @@ curl http://localhost:8000/api/term/GO:0012501/diff
    - Cliquer sur "Voir les détails" pour une comparaison complète
    - Visualiser les changements de définition, hiérarchie, et relations
 
-## Fonctionnalités de l'extension
+## ✨ Fonctionnalités de l'extension
 
 ### Détection automatique
 - Détecte les identifiants GO sur QuickGO, AmiGO et OLS
@@ -187,20 +183,16 @@ curl "http://localhost:8000/api/search?q=apoptosis"
 
 ### Tester l'extension
 
-1. Ouvrir la popup de configuration
-2. Entrer un GO ID (ex: GO:0012501)
+1. Ouvrir la popup de l'extension
+2. Entrer un GO ID dans le champ de test (ex: GO:0012501)
 3. Cliquer sur "Tester"
-4. Vérifier la réponse JSON
-
-Sites de test recommandés:
-- https://www.ebi.ac.uk/QuickGO/term/GO:0012501
-- http://amigo.geneontology.org/amigo/term/GO:0012501
+4. Vérifier la réponse JSON affichée
 
 ## 📊 Domaine d'étude
 
 - **Programmed cell death** (GO:0012501)
 
-## Développement
+## 🔧 Développement
 
 ### Structure du service web
 
@@ -225,7 +217,7 @@ extension-chrome/
 └── styles.css          # Styles injectés
 ```
 
-## Dépannage
+## 🐛 Dépannage
 
 ### Le service web ne démarre pas
 - Vérifier que le port 8000 est libre
@@ -242,21 +234,15 @@ extension-chrome/
 - Vérifier les permissions CORS
 - Vérifier la configuration de l'extension
 
-## Documentation
-
-- `extension-chrome/README.md` - Documentation complète de l'extension Chrome
-- `extension-chrome/INSTALLATION.md` - Guide d'installation détaillé
-- `extension-firefox/README.md` - Documentation de l'extension Firefox
-
-## Équipe
+## 👥 Équipe
 
 Projet développé dans le cadre du cours INF6253 - Web sémantique (UQO, Hiver 2026)
 
-## Licence
+## 📄 Licence
 
 Projet éducatif - INF6253 UQO
 
-## Support
+## 🆘 Support
 
 Pour toute question:
 1. Consulter la documentation dans chaque dossier

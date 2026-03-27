@@ -8,7 +8,7 @@ Ou utiliser ImageMagick en ligne de commande:
 
 ```bash
 # Installer ImageMagick si nécessaire
-# Windows: choco install imagemagick
+# Windows: choco install imagemagick (gestionnaire de packets chocolatey nécessaire)
 # Mac: brew install imagemagick
 # Linux: sudo apt-get install imagemagick
 
